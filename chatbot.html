@@ -158,13 +158,13 @@
             setInputText('');
 
         }
-        return (  // div because we want to use flexbox to align/ place chats one at a time
+        return ( 
             <div className="chat-input-container">
                 <input 
                     placeholder="Send a message to Chatbot" 
                     size="30"
                     onChange={saveInputText}
-                    value={inputText}  // change the HTML Value
+                    value={inputText} 
                     className="chat-input"
                 />
                 <button
@@ -175,20 +175,11 @@
         );
     }
 
-    // or function Chatmessage({message, sender}) {  // Destructuring)
+    
     function ChatMessage(props) {  
-        const message = props.message; // "Hello Chatbot" or 
-        const sender = props.sender; // "user" or "bot"
-        //const {message , sender} = props; (Destructuring)
-        /*if(sender === "bot") {
-            return (
-                <div>
-                <img src="./Photos/robot.png" width="50" />
-                {message}
-                </div>
-            );
+        const message = props.message; 
+        const sender = props.sender;
 
-        }*/ // Instead use Guard Operator
         return (
             <div className={sender === 'user' ? 'chat-message-container-user' : 'chat-message-container-robot'}>
             {sender === 'bot' && <img src="./Photos/robot.png" className="chat-message-profile" />} 
@@ -226,7 +217,6 @@
         ); 
      }
 
-// Instead of A variable its better to use a component to save the app
     function App() {
         const [chatMessages, setChatMessages] = React.useState([
 
@@ -251,9 +241,7 @@
                 id:"id4"
             }
         ]);
-        //const [chatMessages , setChatMessages]= array;
-        //const chatMessages = array[0];
-        //const setChatMessages = array[1];
+
         return (
             <div className="chatbot-container chatbot-container-bottom">
 
@@ -268,14 +256,7 @@
         );
 
 
-        {/*const chatMessageComponent = chatMessages.map((chatMessage) =>{
-            return (
-                <ChatMessage 
-                    message={chatMessage.message} 
-                    sender={chatMessage.sender}
-                />
-            );
-        })
+        {
         
         return (
             <> 
@@ -294,26 +275,10 @@
             
             </>
         );
-        */}
+        }
     }
-    /*
-    const app = (
-        <> 
-            <ChatInput/>
 
-            <ChatMessage 
-                message="Hello Chatbot" 
-                sender="user"
-            />
-            <ChatMessage 
-                message="Hello! How Can I help you?" 
-                sender="bot"
-            />
-        </>
-    );
-    */
     const container = document.querySelector('.js-container');
-    //ReactDOM.createRoot(container).render(app);
     ReactDOM.createRoot(container).render(<App/>);
     </script>
   </body>
