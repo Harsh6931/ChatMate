@@ -1,0 +1,9 @@
+.chat-messages-container {
+  overflow: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.chat-messages-container::-webkit-scrollbar {
+  display: none;
+}
